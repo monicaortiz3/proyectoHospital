@@ -1,0 +1,58 @@
+créate database hospital;
+use hospital;
+
+create table especialidad(
+id especialidad not null varchar(30),
+nombre varchar(20),
+descripción varchar(150),
+primary key(id especialidad)
+);
+
+create table doctor(
+id doctor not null varchar(20),
+nombre varchar(30),
+apellido paterno varchar(30),
+apellido materno varchar(30),
+edad int,
+teléfono int,
+correo varchar(45),
+dirección varchar(30),
+primary key(id doctor)
+);
+
+create table genero(
+id genero not null varchar(15),
+descripción varchar(150),
+primary key(id genero)
+);
+
+create table tipoSangre(
+id tipo not null varchar(20),
+descripción varchar(150),
+compatible varchar(30).
+primary key(id tipo)
+);
+
+create table turno(
+id turno int not null auto-increment,
+turno varchar(20),
+descripción(150),
+primary key(id turno)
+);
+
+create table tipoNotificacion(
+id tipo int not null auto-increment,
+tipo varchar(45),
+descripción(150),
+primary key(id tipo)
+);
+
+create table paciente(
+id paciente int not null auto-increment,
+nombre varchar(30),
+apellido paterno varchar(25),
+apellido materno varchar(25),
+edad int,
+fecha de nacimiento datetime,
+
+);
