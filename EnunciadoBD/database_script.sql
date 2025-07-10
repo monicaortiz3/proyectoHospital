@@ -101,11 +101,10 @@ primary key(id_horario),
 foreign key(id_turno) references turno(id_turno)
 );
 
-create table doctor_horario(
-id_doctor_horario int auto_increment,
+create table doctor_horario( 
 id_doctor varchar(20),
 id_horario int,
-primary key(id_doctor_horario),
+primary key(id_doctor, id_horario),
 foreign key(id_doctor) references doctor(id_doctor),
 foreign key(id_horario) references horario(id_horario)
 );
