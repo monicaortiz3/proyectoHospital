@@ -1,0 +1,11 @@
+-- Como ver que archivos están modificados
+git status
+
+--  como agregar archivos al área de trabajo de git
+git add .
+
+-- como colocar un mensaje 
+git commit -m "Mi comentario"
+
+-- para subir
+git push

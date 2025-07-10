@@ -1,23 +1,25 @@
-créate database hospital;
+create database hospital;
 use hospital;
 
 create table especialidad(
 id especialidad not null varchar(30),
-nombre varchar(20),
+nombre varchar(20) not null,
 descripción varchar(150),
 primary key(id especialidad)
 );
 
 create table doctor(
 id doctor not null varchar(20),
-nombre varchar(30),
-apellido paterno varchar(30),
-apellido materno varchar(30),
+nombre varchar(30) not null,
+apellido_paterno varchar(30),
+apellido_materno varchar(30),
 edad int,
 teléfono int,
 correo varchar(45),
 dirección varchar(30),
-primary key(id doctor)
+id especialidad varchar(30),
+primary key(id doctor),
+foreign key(id especialidad) references especialidad(id especialidad)
 );
 
 create table genero(
@@ -29,7 +31,7 @@ primary key(id genero)
 create table tipoSangre(
 id tipo not null varchar(20),
 descripción varchar(150),
-compatible varchar(30).
+compatible varchar(30),
 primary key(id tipo)
 );
 
@@ -40,19 +42,70 @@ descripción(150),
 primary key(id turno)
 );
 
+create table notificación(
+id notificacion int auto-increment,
+titulo varchar(50),
+contenido varchar(300),
+hora_envio time,
+fecha date date,
+id tipo int,
+primary key(id notificación),
+foreign key(id tipo) references tipoNotificacion(id tipo)
+);
+
 create table tipoNotificacion(
 id tipo int not null auto-increment,
 tipo varchar(45),
 descripción(150),
-primary key(id tipo)
+primary key(id tipo),
 );
 
 create table paciente(
 id paciente int not null auto-increment,
-nombre varchar(30),
-apellido paterno varchar(25),
-apellido materno varchar(25),
+nombre varchar(30) not null,
+apellido_paterno varchar(25),
+apellido_materno varchar(25),
 edad int,
-fecha de nacimiento datetime,
+fecha_nacimiento datetime,
+estatura float,
+peso float,
+teléfono int,
+correo varchar(40),
+dirección varchar(45),
+contacto_emergencia int,
+id genero varchar(15),
+id tipo int,
+primary key(id paciente),
+foreign key(id genero) references genero(id genero),
+foreign key (id tipo) references tipoSangre(id tipo)
+);
 
+create table cita(
+id cita int not null,
+fechaHora datetime,
+observaciones varchar(150),
+id paciente int,
+id doctor varchar(20),
+primary key(id cita),
+foreign key(id paciente) references paciente(id paciente),
+foreign key(id doctor) references doctor(id doctor)
+);
+
+create table horario(
+id horario int auto-increment,
+hora_entrada time,
+hora_salida time,
+dia_semana varchar(20),
+id turno int,
+foreign key(id turno) references turno(id turno)
+
+);
+
+create table doctor_horario(
+id doctor_horario int auto-increment,
+id doctor varchar(20),
+id horario int,
+primary key(id doctorHorario),
+foreign key(id doctor) references doctor(id doctor),
+foreign key(id horario) references horario(id horario)
 );
