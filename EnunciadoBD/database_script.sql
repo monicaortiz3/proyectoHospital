@@ -4,7 +4,7 @@ use hospital;
 create table especialidad(
 id_especialidad varchar(30) not null,
 nombre varchar(20) not null,
-descripción varchar(150),
+descripcion varchar(150),
 primary key(id_especialidad)
 );
 
@@ -49,6 +49,8 @@ insert into genero values
 ('GEN02', 'Femenino'),
 ('GEN03', 'Femenino');
 
+
+insert into genero values ('GEN01', 'Maculino');
 select * from genero;
 
 
@@ -89,9 +91,9 @@ descripción varchar(150),
 primary key(id_tipo)
 );
 insert into tipoNotificacion values
-(0011,'Cita médica', 'Recordatorio o confirmación de una cita programada'),
-(0022,'Resultados de estudios', 'Notificación sobre la disponibilidad de análisis clínicos'),
-(0033,'Urgencia', 'Aviso importante por una situación crítica o emergencia');
+(11,'Cita médica', 'Recordatorio o confirmación de una cita programada'),
+(22,'Resultados de estudios', 'Notificación sobre la disponibilidad de análisis clínicos'),
+(33,'Urgencia', 'Aviso importante por una situación crítica o emergencia');
 
 select * from tipoNotificacion;
 
@@ -108,9 +110,9 @@ foreign key(id_tipo) references tipoNotificacion(id_tipo)
 );
 
 insert into notificacion values
-(1, 'Cambio de horario', 'Se ha actualizado el horario de atención del doctor.', '08:30:00', '2025-07-10', 1),
-(2, 'Vacuna disponible', 'Ya está disponible la vacuna contra la gripe.', '10:15:00', '2025-07-11', 2),
-(3, 'Mantenimiento', 'El sistema estará en mantenimiento el sábado.', '16:00:00', '2025-07-12', 1);
+(1, 'Cambio de horario', 'Se ha actualizado el horario de atención del doctor.', '08:30:00', '2025-07-10', 11),
+(2, 'Vacuna disponible', 'Ya está disponible la vacuna contra la gripe.', '10:15:00', '2025-07-11', 22),
+(3, 'Mantenimiento', 'El sistema estará en mantenimiento el sábado.', '16:00:00', '2025-07-12', 11);
 
 select * from notificaci;
 

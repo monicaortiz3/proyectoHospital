@@ -4,9 +4,7 @@ import com.hospital.baseDatos.Conexion;
 import com.hospital.modelo.Especialidad;
 import com.hospital.modelo.Genero;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +23,25 @@ public class GeneroDao {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            conexion.cerrarConexion();
         }
         return lista;
+    }
+
+    public void insertarGenero(Genero genero){
+        Conexion conexion = new Conexion();
+        String sql = "insert into genero values (?, ?);";
+        try(PreparedStatement statement = conexion.getConnection().prepareStatement(sql)){
+            statement.setString(1, genero.getIdGenero());
+            statement.setString(2, genero.getDescripcion());
+            statement.executeUpdate();
+            System.out.println("Genero insertado correctamente");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            conexion.cerrarConexion();
+        }
     }
 
     public void mostrarLista(List<Genero> lista){

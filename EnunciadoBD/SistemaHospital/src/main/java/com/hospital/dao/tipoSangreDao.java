@@ -13,15 +13,15 @@ public class tipoSangreDao {
         Conexion conexion = new Conexion();
         List<tipoSangreDao> lista = new ArrayList<>();
         String sqlSelect = "select * from tipoSangre";
-        try(Statement statement = conexion.getConnection().createStatement());
-        ResultSet resultSet = statement.executeQuery(sqlSelect)){
-          while(resultSet.next()){
-            String idTipoSangre = resultSet.getString("id_tipo");
-            String descripciom = resultSet.getString('descripción');
-            String 
-        }
-        }
-
+//        try(Statement statement = conexion.getConnection().createStatement());
+//        ResultSet resultSet = statement.executeQuery(sqlSelect)){
+//          while(resultSet.next()){
+//            String idTipoSangre = resultSet.getString("id_tipo");
+//            String descripciom = resultSet.getString('descripción');
+//            // String
+//            }
+//        }
+        return null;
     }
 
 }

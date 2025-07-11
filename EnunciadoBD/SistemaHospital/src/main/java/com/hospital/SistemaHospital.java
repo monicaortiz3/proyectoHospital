@@ -15,9 +15,13 @@ public class SistemaHospital {
        // List<Especialidad> especialidades = dao.obtenerEspecialidades();
       //  dao.mostrarLista(especialidades);
 
+//        GeneroDao generoDao = new GeneroDao();
+//        List<Genero> genero = generoDao.obtenerGenero();
+//        generoDao.mostrarLista(genero);
+
         GeneroDao generoDao = new GeneroDao();
-        List<Genero> genero = generoDao.obtenerGenero();
-        generoDao.mostrarLista(genero);
+        generoDao.insertarGenero(new Genero("TST", "Test"));
+
     }
 
 }
